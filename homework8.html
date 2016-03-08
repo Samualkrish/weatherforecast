@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 8</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://icons.iconarchive.com/icons/icons8/windows-8/256/Weather-Chance-Of-Storm-icon.png" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!--    <link rel="stylesheet" type="text/css" href="http://openlayers.org/api/theme/default/style.css">-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="homework8.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.1/moment-timezone-with-data-2010-2020.min.js"></script>
+    <script src="homework8.js"></script>
+</head>
+
+<body role="document">
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '532178986936566',
+                xfbml: true,
+                version: 'v2.5'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="searchform" class="container" role="main">
+        <div class="row">
+            <div class="col-md-12 header">
+                <span>Forecast Search</span>
+            </div>
+        </div>
+        <div class="row searchform">
+            <form class="form" id="form" role="form" method="get">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <label class="control-label" for="street">Street Address:</label><span class="red">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="street" id="street" placeholder="Enter street address" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="control-label error" id="streetError"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-2">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <label>City:</label><span class="red">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="city" id="city" class="form-control" placeholder="Enter city">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="error" id="cityError"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-2">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <label>State:</label><span class="red">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="states" name="states" class="form-control">
+                                        <option value="" selected>Select your state...</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="DC">District Of Columbia</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="error" id="stateError"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-2 clearrightPadding">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <label>Degree:</label><span class="red">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="degreeF" name="degree" value="F" checked>Fahrenheit</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="degreeC" name="degree" value="C">Celsius</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3 rightAlign">
+                        <table align="right" width="100%">
+                            <tr>
+                                <td>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr align="right">
+                                <td>
+                                    <button type="submit" id="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                    <button type="button" id="clear" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Clear</button>
+                                </td>
+                            </tr>
+                            <tr align="right">
+                                <td>
+                                    <br />
+                                    <label id="Forecast">Powered By:</label>
+                                    <a href="http://forecast.io" target="_blank"><img src="http://cs-server.usc.edu:45678/hw/hw8/images/forecast_logo.png" height="40" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <hr></hr>
+        </div>
+    </div>
+    <div id="formData" class="container hidden" style="padding:0">
+        <ul class="nav nav-tabs nav-pills">
+            <li class="active"><a data-toggle="pill" href="#rightnow">Right Now</a></li>
+            <li><a data-toggle="pill" href="#next24hours">Next 24 Hours</a></li>
+            <li><a data-toggle="pill" href="#next7days">Next 7 Days</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="rightnow" class="row tab-pane fade in active">
+                <div id="currentValue" class="col-lg-6 paddingRight">
+                    <div class="content">
+                        <div class="wells temperatureDiv">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img id="currentImage" src="" height="120" align="center" />
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="top">
+                                        <label class="control-label" id="summary"></label>
+                                    </div>
+                                    <div id="middle" class="middle">
+                                    </div>
+                                    <div class="bottom">
+                                        <span class="bottomTemp">
+                                            <label class="control-label" id="low"></label> |
+                                            <label class="control-label" id="high"></label>
+                                        </span>
+                                        <img src="http://cs-server.usc.edu:45678/hw/hw8/images/fb_icon.png" height="30" class="nowImage" align="right" onClick="postToFB()" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Precipitation</td>
+                                <td>
+                                    <span id="precipitation"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chance of Rain</td>
+                                <td>
+                                    <span id="chanceofrain"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed</td>
+                                <td>
+                                    <span id="windspeed"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dew Point</td>
+                                <td>
+                                    <span id="dewpoint"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Humidity</td>
+                                <td>
+                                    <span id="humidity"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Visibility</td>
+                                <td>
+                                    <span id="visibility"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sunrise</td>
+                                <td>
+                                    <span id="sunrise"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sunset</td>
+                                <td>
+                                    <span id="sunset"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6 paddingLeft">
+                    <div id="map" style="width:100%; height:435px; border: 2px solid white"></div>
+                    <!--                        class="map" -->
+                </div>
+            </div>
+            <div id="next24hours" class="tab-pane fade">
+                <div class="table-responsive panel">
+                    <table id="24table" class="table borderless table24">
+                        <thead class="label-primary nexttable" align="center">
+                            <tr>
+                                <th>Time</th>
+                                <th>Summary</th>
+                                <th>Cloud Cover</th>
+                                <th>Temp <span id="deg24Header"></span></th>
+                                <th>View Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTable" align="center">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="next7days" class="tab-pane fade noPadding">
+                <div class="wells centerMargin">
+                    <div id="table7days"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <noscript>
+</body>
+
+</html>

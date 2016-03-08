@@ -1,0 +1,376 @@
+body {
+    font-family: "Open sans", "Roboto", sans-serif;
+    background: url("http://cs-server.usc.edu:45678/hw/hw8/images/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    background-size: cover;
+    vertical-align: center;
+    margin: auto 10px;
+    height: 100%;
+}
+
+.currentDiv {
+    padding-right: 0;
+}
+
+.col-height {
+    height: 100%;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.col-right {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.inside-div {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.mapDiv {
+    padding: 0;
+    margin: 0;
+    border: 1px solid white;
+}
+
+.searchform {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.clearrightPadding {
+    padding-right: 0;
+}
+
+.radio-inline {
+    font-weight: 400;
+}
+
+.error {
+    color: red;
+}
+
+.red {
+    color: red;
+    font-size: small;
+    font-weight: bold;
+}
+
+.header {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px auto;
+}
+
+.rightAlign {
+    text-align: right;
+    text-align: -moz-right;
+}
+
+.nav li a {
+    background-color: #e3e3e3;
+}
+
+.heading {
+    color: white;
+    font-size: small;
+    font-weight: bold;
+}
+
+label,
+.deg {
+    color: white;
+}
+
+.temperatureDiv {
+    border-radius: 0 !important;
+    background-color: #f27e7e;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td {
+    background-color: #f7f7f7;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td {
+    background-color: #f2dfdf;
+}
+
+.table24 > tbody > tr > td {
+    border: none !important;
+}
+
+#tableBody {
+    border: none;
+}
+
+#temperature {
+    font-size: 52px;
+    vertical-align: top;
+}
+
+.middle {
+    font-size: normal;
+    color: white;
+    font-weight: bold;
+}
+
+.bottom {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: auto 0px;
+}
+
+.bottomTemp {
+    position: relative;
+    bottom: 0px;
+    top: 10px;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.nowImage{
+    cursor: pointer;
+    text-align: right;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#basicMap {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    padding: 0px !important;
+    margin-left: 0 !important;
+}
+
+#temperature {
+    font-size: 52px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+#24table tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.nexttable th {
+    color: white;
+    text-align: center;
+}
+
+.centerHeader th,
+.centerHeader td,
+.daystable td {
+    text-align: center;
+}
+
+.centerHeader td {
+    background: rgba(0, 0, 0, 0);
+}
+
+.borderless td,
+.borderless th {
+    border: none;
+}
+
+.blue {
+    color: #337db5;
+    cursor: pointer;
+}
+
+.color1 {
+    background-color: #337db5;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color2 {
+    background-color: #ed413e;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color3 {
+    background-color: #e68d49;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color4 {
+    background-color: #a6a42e;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color5 {
+    background-color: #966da6;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color6 {
+    background-color: #f57d7d;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.color7 {
+    background-color: #cf426f;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+#high {
+    color: green;
+}
+
+#low {
+    color: blue;
+}
+
+#currentImage {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.minTemp {
+    color: white;
+}
+
+.centerAlign {
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+}
+
+.centerAlign td {
+    border: none !important;
+}
+
+.day,
+.sum {
+    font-weight: bold;
+}
+
+.sum {
+    color: #e68d49;
+}
+
+.paddingDays {
+    padding: 15px 10px !important;
+    margin: 10px;
+    text-align: center !important;
+    display: inline-block;
+}
+
+.rowHeader {
+    font-weight: bold;
+}
+
+#degVal {
+    color: white;
+    font-size: 15px;
+    position: relative;
+    bottom: 25px;
+}
+
+.zeroVal {
+    padding: auto 0;
+    margin: auto 0;
+    border-radius: 0;
+}
+
+#tableBack > tbody > tr {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (min-width: 500px) {
+    .xs-col {
+        width: 9%;
+        padding: 10px;
+    }
+    
+    .centerMargin {
+        text-align: center;
+        margin: 0 auto;
+        background: #2f3338;
+    }
+    
+    .paddingRight{
+        padding-right: 0;
+    }
+    
+    .paddingLeft{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .table24 > thead > tr > th{
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+    
+    .table24 > tbody > tr > td{
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+    
+    .xs-col {
+        width: 90%;
+        padding: 10px;
+    }
+    .centerMargin {
+        text-align:center;
+        margin: 0 auto;
+        background: none;
+    }
+    .noPadding {
+        padding: 0px;
+    }
+    
+    .paddingRight{
+        padding-top: 0;
+    }
+    
+    .paddingLeft{
+        padding-bottom: 0;
+    }
+}
+
+.modalHeader{
+    text-align: left;
+}
